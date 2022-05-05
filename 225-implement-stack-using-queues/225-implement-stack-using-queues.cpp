@@ -2,10 +2,6 @@ class MyStack {
 public:
     queue<int> q1;
     queue<int> q2;
-    int i = 0;
-    MyStack() {
-        
-    }
     
     void push(int x) {
         queue<int> empty;
