@@ -1,18 +1,27 @@
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& matrix, int k) {
-        priority_queue<int , vector<int> ,greater<int>> pq;
-        int n = matrix.size();
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                pq.push(matrix[i][j]);
-            }
-        }
-        for(int i=1;i<k;i++) {
-            // cout<<pq.top()<<" ";
-            pq.pop();
-        }
-        
-        return pq.top();
+        priority_queue<int , vector<int> ,greater<int>> pq;int n = matrix.size();
+		int le = matrix[0][0], ri = matrix[n - 1][n - 1];
+		int mid = 0;
+		while (le < ri)
+		{
+			mid = le + (ri-le)/2;
+			int num = 0;
+			for (int i = 0; i < n; i++)
+			{
+				int pos = upper_bound(matrix[i].begin(), matrix[i].end(), mid) - matrix[i].begin();
+				num += pos;
+			}
+			if (num < k)
+			{
+				le = mid + 1;
+			}
+			else
+			{
+				ri = mid;
+			}
+		}
+		return le;
     }
 };
