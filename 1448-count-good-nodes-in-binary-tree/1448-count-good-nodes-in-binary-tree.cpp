@@ -2,7 +2,7 @@ class Solution {
 public:
     int cnt = 0;
     int goodNodes(TreeNode* root) {
-        fun(root,INT_MIN);
+        fun(root,root->val);
         return cnt;
     }
     void fun(TreeNode* root,int val){
