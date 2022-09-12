@@ -1,7 +1,7 @@
 const int N = 1e5+1;
 class Solution {
 public:
-    int dp[N][2][3] = {0};
+    int dp[N][2][3];
     int fun(vector<int>& p,int b,int i,int ch){
         if(i==p.size() or ch == 0){
             return 0;
