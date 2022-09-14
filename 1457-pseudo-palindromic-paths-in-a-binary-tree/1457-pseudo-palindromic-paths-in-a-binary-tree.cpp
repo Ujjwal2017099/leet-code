@@ -6,7 +6,7 @@ public:
         fun(root,v,0);
         return cnt;
     }
-    void fun(TreeNode* node,vector<int> v,int c){
+    void fun(TreeNode* node,vector<int>& v,int c){
         if(node == nullptr) return;
         v[node->val]++;
         c++;
@@ -15,21 +15,23 @@ public:
                 int f = 1;
                 for(int i=1;i<=9;i++){
                     if(v[i]&1 and f==0){
-                        return;
+                        {v[node->val]--;return;}
                     }else if(v[i]&1) f--;
                 }
             }else{
                 for(int i=1;i<=9;i++){
-                    if(v[i]&1) return;
+                    if(v[i]&1) {
+                        v[node->val]--;
+                        return;
+                    }
                 }
             }
             cnt++;
-            return;
         }
         
         
         fun(node->left,v,c);
         fun(node->right,v,c);
-        
+        v[node->val]--;
     }
 };
