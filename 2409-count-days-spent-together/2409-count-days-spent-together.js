@@ -11,13 +11,13 @@ var countDaysTogether = function(aa, la, ab, lb) {
         }
         if(Math.max(sa,sb) == Math.min(ea,eb)){
             if(sb>sa || (sb==sa && sdb >= sda)){
-                if(eda < edb){
+                if(ea < eb || (ea==eb && eda <= edb)){
                     ans = eda - sdb + 1;
                 }else{
                     ans = edb - sdb + 1;
                 }
             }else{
-                if(eda < edb){
+                if(ea < eb || (ea==eb && eda <= edb)){
                     ans = eda - sda + 1;
                 }else{
                     ans = edb - sda + 1;
