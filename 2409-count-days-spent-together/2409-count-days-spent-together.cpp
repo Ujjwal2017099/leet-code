@@ -13,13 +13,13 @@ public:
         }
         if(max(sa,sb) == min(ea,eb)){
             if(sb>sa or (sb==sa and sdb >= sda)){
-                if(eda < edb){
+                if(ea < eb or (ea==eb and eda <= edb)){
                     ans = eda - sdb + 1;
                 }else{
                     ans = edb - sdb + 1;
                 }
             }else{
-                if(eda < edb){
+                if(ea < eb or (ea==eb and eda <= edb)){
                     ans = eda - sda + 1;
                 }else{
                     ans = edb - sda + 1;
