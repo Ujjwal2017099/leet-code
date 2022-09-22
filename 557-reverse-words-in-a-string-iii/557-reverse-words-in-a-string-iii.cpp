@@ -1,14 +1,13 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        int prev = 0;
-        for(int i=0;i<s.length();i++){
-            if(s[i]==' '){
-                reverse(s.begin()+prev,s.begin()+i);
-                prev = i+1;
-            }
+        std::string::iterator word_begin = s.begin();
+        while (true) {
+            auto word_end = find(word_begin, s.end(), ' ');
+            std::reverse(word_begin, word_end);
+            if (word_end == s.end()) break;
+            word_begin = word_end +1;
         }
-        reverse(s.begin()+prev,s.end());
         return s;
     }
 };
