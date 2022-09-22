@@ -1,7 +1,7 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        std::string::iterator word_begin = s.begin();
+        auto word_begin = s.begin();
         while (true) {
             auto word_end = find(word_begin, s.end(), ' ');
             std::reverse(word_begin, word_end);
