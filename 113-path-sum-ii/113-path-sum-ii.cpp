@@ -3,10 +3,11 @@ class Solution {
 public:
     vector<vector<int>> ans;
     vector<vector<int>> pathSum(TreeNode* root, int target) {
-        fun(root,target,0,{});
+        vector<int> v;
+        fun(root,target,0,v);
         return ans;
     }
-    void fun(TreeNode* node,int target,int sum,vector<int> v){
+    void fun(TreeNode* node,int target,int sum,vector<int>& v){
         if(node==nullptr ) return;
         sum += node->val;
         v.push_back(node->val);
@@ -16,5 +17,6 @@ public:
         if(sum == target and !node->left and !node->right){
             ans.push_back(v);
         }
+        v.pop_back();
     }
 };
