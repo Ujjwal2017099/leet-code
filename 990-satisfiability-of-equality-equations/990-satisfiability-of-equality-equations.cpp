@@ -15,7 +15,7 @@ public:
         for(int i=0;i<26;i++){
             arr[i] = find(arr[i]);
         }
-        for(int i:arr) cout<<i<<" ";
+        // for(int i:arr) cout<<i<<" ";
         for(auto i:e){
             char c=i[1];
             if(c=='!'){
