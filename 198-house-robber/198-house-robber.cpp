@@ -9,7 +9,7 @@ public:
         if(i==n.size()){
             return 0;
         }
-        if(l>=0 and dp[i][l]!=-1){
+        if(dp[i][l]!=-1){
             return dp[i][l];
         }
         int x=0,y=0;
