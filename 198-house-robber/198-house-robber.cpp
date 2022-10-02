@@ -2,24 +2,22 @@ class Solution {
 public:
     int dp[102][102];
     int rob(vector<int>& n) {
-        memset(dp,-1,sizeof(dp));
-        return fun(n,0,1);
-    }
-    int fun(vector<int>& n,int i,int l){
-        if(i==n.size()){
-            return 0;
+        memset(dp,0,sizeof(dp));
+        for(int l=0;l<n.size();l++){
+            for(int i=0;i<n.size();i++){
+                if(i!=l+1){
+                    dp[l+1][i+1] = max(dp[l+1][i],max(dp[l+1][l+1]+n[i],dp[l][i+1]));
+                }else{
+                    dp[l+1][i+1] = max(dp[l][i+1],dp[l+1][i]);
+                }
+            }
         }
-        if(dp[i][l]!=-1){
-            return dp[i][l];
-        }
-        int x=0,y=0;
-        if(i==l+1){
-            x = fun(n,i+1,l);
-        }else{
-            int a = fun(n,i+1,i) + n[i];
-            int b = fun(n,i+1,l);
-            y = max(a,b);
-        }
-        return dp[i][l]=max(x,y);
+        // for(int l=0;l<=n.size();l++){
+        //     for(int i=0;i<=n.size();i++){
+        //         cout<<dp[l][i]<<" ";
+        //     }
+        //     cout<<endl;
+        // }
+        return dp[n.size()][n.size()];
     }
 };
