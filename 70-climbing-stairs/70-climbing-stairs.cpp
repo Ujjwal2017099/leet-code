@@ -1,20 +1,12 @@
 class Solution {
 public:
-    int dp[50];
-    Solution(){
-        memset(dp,-1,sizeof(dp));
-    }
     int climbStairs(int n) {
-        if(n==0){
-            return 1;
+        int dp[50];
+        dp[1] = 1;
+        dp[2] = 2;
+        for(int i=3;i<=n;i++){
+            dp[i] = dp[i-2]+dp[i-1];
         }
-        if(n<0){
-            return 0;
-        }
-        if(dp[n]!=-1) return dp[n];
-        
-        int a=climbStairs(n-1);
-        int b=climbStairs(n-2);
-        return dp[n]=a+b;
+        return dp[n];
     }
 };
