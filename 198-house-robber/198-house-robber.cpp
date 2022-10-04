@@ -12,12 +12,6 @@ public:
                 }
             }
         }
-        // for(int l=0;l<=n.size();l++){
-        //     for(int i=0;i<=n.size();i++){
-        //         cout<<dp[l][i]<<" ";
-        //     }
-        //     cout<<endl;
-        // }
         return dp[n.size()][n.size()];
     }
 };
