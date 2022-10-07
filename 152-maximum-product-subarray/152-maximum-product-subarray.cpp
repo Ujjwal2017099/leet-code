@@ -9,7 +9,6 @@ public:
             if(n[i]<0) swap(mx,mn);
             mx = max(n[i],n[i]*mx);
             mn = min(n[i],n[i]*mn);
-            cout<<mx<<" "<<mn<<endl;
             ans = max(ans,max(mx,mn));
             
         }
