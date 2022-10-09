@@ -3,7 +3,7 @@ public:
     TreeNode* root=nullptr;
     bool findTarget(TreeNode* node, int k) {
         root = node;
-        if(!node->left and !node->right) return 0;
+        // if(!node->left and !node->right) return 0;
         return fun(node,k);
     }
     bool fun(TreeNode* node,int k){
