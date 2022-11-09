@@ -1,19 +1,31 @@
 class StockSpanner {
 public:
     vector<int> v;
+    vector<int> cnt;
     StockSpanner() {
         
     }
     
     int next(int p) {
-        v.push_back(p);
-        int cnt=0;
+        if(v.empty()){
+            v.push_back(p);
+            cnt.push_back(1);
+            return 1;
+        }
+        if(p<v.back()){
+            v.push_back(p);
+            cnt.push_back(1);
+            return 1;
+        }
+        int ans=0;
+        v.back() = p;
+        cnt.back()++;
         for(int i=v.size()-1;i>=0;i--){
             if(v[i]>p) break;
             
-            cnt++;
+            ans+=cnt[i];
         }
-        return cnt;
+        return ans;
     }
 };
 
