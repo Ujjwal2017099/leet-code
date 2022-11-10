@@ -18,10 +18,8 @@ public:
             int c=0;
             for(int j=n1.size()-1;j>=0;j--){
                 int temp = (n2[i]-'0')*(n1[j]-'0')+c;
-                // if(temp) {
-                    char x = temp%10 + '0';
-                    t = x + t;
-                // }
+                char x = temp%10 + '0';
+                t = x + t;
                 c = temp/10;
             }
             while(c>0){
@@ -61,9 +59,6 @@ public:
             char x = car%10+'0';
             ans = x+ans;
             car/=10;
-        }
-        for(string s:m){
-            cout<<s<<endl;
         }
         if(ans.empty()) return "0";
         while(cnt--) ans+='0';
