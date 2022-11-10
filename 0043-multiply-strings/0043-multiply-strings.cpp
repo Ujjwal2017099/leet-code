@@ -37,12 +37,10 @@ public:
         for(string s:m){
             mx = max(mx,(int)s.length());
         }
-        // cout<<mx<<endl;
         for(string& s:m){
             while(mx-s.length()){
                 s='0'+s;
             }
-            // cout<<mx-s.length()<<endl;
         }
         int car=0;
         for(int j=m[0].size()-1;j>=0;j--){
