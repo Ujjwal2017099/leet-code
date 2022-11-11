@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[105][10005];
+    int dp[100][10005];
     Solution(){
         memset(dp,-1,sizeof(dp));
     }
