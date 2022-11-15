@@ -10,8 +10,6 @@ public:
         int h = height(root);
         int n = (1<<h) - 1;
         int miss = fun(root,0,h);
-        // cout<<miss;
-        
         return n-miss;
     }
     int fun(TreeNode* root,int curr,int h){
@@ -27,7 +25,6 @@ public:
             l = fun(root->left,curr+1,h);
             if(l) f=0;
         }
-        cout<<r<<" "<<l<<endl;
         return r+l;
     }
 };
