@@ -32,8 +32,8 @@ public:
                 f &= fun(g,vis,x);
                 if(f==0) return 0;
             }
+            ans.push_back(i);
         }
-        if(vis[i]!=2)ans.push_back(i);
         vis[i] = 2;
         return 1;
     }
