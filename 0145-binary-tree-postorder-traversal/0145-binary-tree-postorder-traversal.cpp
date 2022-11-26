@@ -13,7 +13,6 @@ class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
-        map<TreeNode*,bool> mp;
         stack<TreeNode*> st;
         if(root==nullptr){
             return ans;
