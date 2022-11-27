@@ -11,32 +11,17 @@
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
-        vector<int> v;
-        ListNode* ptr = head;
-        while(ptr){
-            v.push_back(ptr->val);
-            ptr = ptr->next;
+        return fun(head,nullptr);
+    }
+    ListNode* fun(ListNode* head,ListNode* prev){
+        if(head->next==nullptr){
+            return head;
         }
-        vector<int> ans;
-        int mx = INT_MIN;
-        for(int i=v.size()-1;i>=0;i--){
-            if(v[i]>=mx){
-                ans.push_back(v[i]);
-            }
-            mx = max(v[i],mx);
+        ListNode* x = fun(head->next,head);
+        if(head->val < x->val){
+            if(prev)prev->next = x;
+            return x;
         }
-        // cout<<ans.size()<<endl;
-        reverse(ans.begin(),ans.end());
-        if(ans.size()){
-            ListNode* ptr = new ListNode(ans[0]);
-            ListNode* t = ptr;
-            for(int i=1;i<ans.size();i++){
-                t->next = new ListNode(ans[i]);
-                t = t->next;
-            }
-            return ptr;
-        }
-        
-        return nullptr;
+        return head;
     }
 };
