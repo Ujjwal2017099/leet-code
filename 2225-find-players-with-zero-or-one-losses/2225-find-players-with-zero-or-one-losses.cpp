@@ -1,23 +1,29 @@
 class Solution {
 public:
-    vector<vector<int>> findWinners(vector<vector<int>>& m) {
-        int arr[100001];
-        memset(arr,-1,sizeof(arr));
-        int cnt=0;
-        for(auto it:m){
-            if(arr[it[0]]==-1) {arr[it[0]] = 0;cnt++;}
-            if(arr[it[1]]==-1) {arr[it[1]] = 0;cnt++;}
-             arr[it[1]]++;
-            
+    vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        vector<int> lossesCount(100001, -1);
+
+        for (auto& match : matches) {
+            int winner = match[0], loser = match[1];
+            if (lossesCount[winner] == -1) {
+                lossesCount[winner] = 0;
+            }
+            if (lossesCount[loser] == -1) {
+                lossesCount[loser] = 1;
+            } else {
+                lossesCount[loser]++;
+            }
         }
-        vector<vector<int>> ans(2);
-        for(int i=0;i<=100000;i++){
-            if(arr[i]==-1) continue;
-            if(cnt==0) break;
-            if(arr[i]==0) ans[0].push_back(i);
-            if(arr[i]==1) ans[1].push_back(i);
-            cnt--;
+
+        vector<vector<int>> answer(2, vector<int>());
+        for (int i = 1; i < 100001; ++i) {
+            if (lossesCount[i] == 0) {
+                answer[0].push_back(i);
+            } else if (lossesCount[i] == 1) {
+                answer[1].push_back(i);
+            }
         }
-        return ans;
+
+        return answer;
     }
 };
