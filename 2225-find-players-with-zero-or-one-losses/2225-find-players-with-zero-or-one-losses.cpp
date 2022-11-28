@@ -6,8 +6,8 @@ public:
         int cnt=0;
         for(auto it:m){
             if(arr[it[0]]==-1) {arr[it[0]] = 0;cnt++;}
-            if(arr[it[1]]==-1) arr[it[1]] = 0;
-            if(arr[it[1]]<2) {arr[it[1]]++;cnt++;}
+            if(arr[it[1]]==-1) {arr[it[1]] = 0;cnt++;}
+             arr[it[1]]++;
             
         }
         vector<vector<int>> ans(2);
