@@ -17,12 +17,14 @@ public:
         return root;
     }
     void fun(TreeNode* node){
-        if(!node){
+        if(!node->right && !node->left){
+            sum += node->val;
+            node->val = sum;
             return ;
         }
-        fun(node->right);
+        if(node->right) fun(node->right);
         sum += node->val;
         node->val = sum;
-        fun(node->left);
+        if(node->left) fun(node->left);
     }
 };
