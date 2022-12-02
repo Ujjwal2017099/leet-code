@@ -1,6 +1,7 @@
 class Solution {
 public:
-    set<int> ans;
+    vector<int> ans;
+    map<int,bool> mp;
     vector<int> eventualSafeNodes(vector<vector<int>>& g) {
         int n = g.size();
         vector<int> vis(n,0);
@@ -8,27 +9,30 @@ public:
             if(vis[i]) continue;
             fun(g,vis,i);
         }
-        vector<int> ot;
-        for(int i:ans){
-            ot.push_back(i);
-        }
-        return ot;
+        // vector<int> ot;
+        // for(int i:ans){
+        //     ot.push_back(i);
+        // }
+        sort(ans.begin(),ans.end());
+        return ans;
     }
     int fun(vector<vector<int>>& g,vector<int>& vis,int i){
         if(vis[i]){
-            if(ans.find(i)==ans.end() && !g[i].empty()) return 0;
+            if(!mp[i] && !g[i].empty()) return 0;
             return 1;
         }
         vis[i] = 1;
         if(g[i].empty()){
-            ans.insert(i);
+            ans.push_back(i);
+            mp[i] = 1;
             return 1;
         }
         for(int x:g[i]){
             int t = fun(g,vis,x);
             if(t==0) return 0;
         }
-        ans.insert(i);
+        ans.push_back(i);
+        mp[i]=1;
         return 1;
     }
 };
