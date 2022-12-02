@@ -3,8 +3,9 @@ public:
     set<int> ans;
     vector<int> eventualSafeNodes(vector<vector<int>>& g) {
         int n = g.size();
-            vector<int> vis(n,0);
+        vector<int> vis(n,0);
         for(int i=0;i<n;i++){
+            if(vis[i]) continue;
             fun(g,vis,i);
         }
         vector<int> ot;
