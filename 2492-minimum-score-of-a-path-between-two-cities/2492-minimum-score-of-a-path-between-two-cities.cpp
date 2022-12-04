@@ -32,6 +32,6 @@ public:
     }
     int find(int x,vector<int>& par){
         if(par[x]<0) return x;
-        return find(par[x],par);
+        return par[x]  = par[x] >= 0 ? find(par[x],par) : par[x];
     }
 };
