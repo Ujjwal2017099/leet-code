@@ -1,13 +1,10 @@
 class Solution {
 public:
     int minScore(int n, vector<vector<int>>& r) {
-        map<vector<int>,int> d;
-        vector<vector<int>> g(n+1);
         vector<int> par(n+1,-1);
         for(auto it:r){
             int u = min(it[0],it[1]);
             int v = max(it[0],it[1]);
-            d[{u,v}] = it[2];
             Union(par,u,v);
         }
         // for(int i=1;i<=n;i++) cout<<par[i]<<" ";
