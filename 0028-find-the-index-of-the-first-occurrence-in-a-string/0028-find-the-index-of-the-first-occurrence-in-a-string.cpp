@@ -14,7 +14,7 @@ public:
             }
             t[i] = l;
         }
-        for(int i:t) cout<<i<<" ";
+        // for(int i:t) cout<<i<<" ";
         int s = h.size();
         int j = 0;
         int i = 0;
