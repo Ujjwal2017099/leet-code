@@ -31,23 +31,26 @@ public:
         long long one = 0;
         long long two = 0;
         long long t = 0;
+        long long p = sum[node];
         if(node->left){
-            one = sum[node->left];
-            t = sum[node]-one;
+            long long l = sum[node->left];
+            one = l;
+            t = p-one;
             t += par;
             if(prd < one*t){
                 prd = one*t;
             }
-            find(node->left,sum[node]-sum[node->left]+par);
+            find(node->left,p-l+par);
         }
         if(node->right){
-            two = sum[node->right];
-            t = sum[node]-two;
+            long long r = sum[node->right];
+            two = r;
+            t = p-two;
             t+=par;
             if(prd < two*t){
                 prd = two*t;
             }
-            find(node->right,sum[node]-sum[node->right]+par);
+            find(node->right,p-r+par);
         }
     }
 };
