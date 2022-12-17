@@ -6,22 +6,22 @@ public:
             if(t[i]!="-" && t[i]!="+" && t[i]!="*" && t[i]!="/"){
                 st.push(stoi(t[i]));
             }
-            if(t[i]=="+"){
+            else if(t[i]=="+"){
                 long long a = st.top();st.pop();
                 long long b = st.top();st.pop();
                 st.push(a+b);
             }
-            if(t[i]=="-"){
+            else if(t[i]=="-"){
                 long long a = st.top();st.pop();
                 long long b = st.top();st.pop();
                 st.push(b-a);
             }
-            if(t[i]=="*"){
+            else if(t[i]=="*"){
                 long long a = st.top();st.pop();
                 long long b = st.top();st.pop();
                 st.push(a*b);
             }
-            if(t[i]=="/"){
+            else{
                 long long a = st.top();st.pop();
                 long long b = st.top();st.pop();
                 st.push(b/a);
