@@ -9,7 +9,6 @@ public:
         }
         vector<int> vis(n+1,0);
         for(int i=1;i<=n;i++){
-            
             bool f = 0; 
             if(!vis[i]) f = iscycle(g,vis,i,0,0);
             if(f) return 0;
