@@ -8,7 +8,7 @@ public:
         return ans;
     }
     void fun(string s,int i,int l,int cnt){
-        if(i>=s.size()){
+        if(i>=s.size() || cnt==3){
             if(cnt>3 || cnt<3) return;
             string x = s.substr(l,s.size()-l);
             if(x.size()>3 || (x[0]=='0' && x.size()>1)) return;
