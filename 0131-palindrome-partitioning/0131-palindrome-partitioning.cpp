@@ -2,16 +2,18 @@ class Solution {
 public:
     vector<vector<string>> ans;
     vector<vector<string>> partition(string s) {
-        fun(s,{},0,0);
+        vector<string> t;
+        fun(s,t,0,0);
         return ans;
     }
-    void fun(string& s,vector<string> t,int i,int l){
+    void fun(string& s,vector<string>& t,int i,int l){
         if(i>=s.size()){
             string x = s.substr(l,s.size()-l);
             if(x.empty()) return;
             if(isPal(x)){
                 t.push_back(x);
                 ans.push_back(t);
+                t.pop_back();
             }
             return;
         }
@@ -21,6 +23,7 @@ public:
         if(isPal(x)){
             t.push_back(x);
             fun(s,t,i+1,i+1);
+            t.pop_back();
         }
     }
     bool isPal(string x){
