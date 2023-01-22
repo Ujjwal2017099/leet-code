@@ -26,7 +26,7 @@ public:
             t.pop_back();
         }
     }
-    bool isPal(string x){
+    bool isPal(string& x){
         int l=0,r=x.size()-1;
         while(l<r){
             if(x[l]!=x[r]){
