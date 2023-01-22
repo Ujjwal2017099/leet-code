@@ -5,7 +5,7 @@ public:
         fun(s,{},0,0);
         return ans;
     }
-    void fun(string s,vector<string> t,int i,int l){
+    void fun(string& s,vector<string> t,int i,int l){
         if(i>=s.size()){
             string x = s.substr(l,s.size()-l);
             if(x.empty()) return;
