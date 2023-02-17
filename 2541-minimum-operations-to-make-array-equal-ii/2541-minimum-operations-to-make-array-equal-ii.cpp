@@ -7,7 +7,7 @@ public:
         for(int i=0;i<n;i++){
             t[i] = n2[i]-n1[i];
             if(k==0 && t[i]!=0) return -1;
-            cout<<t[i]<<" ";
+            // cout<<t[i]<<" ";
         }
         if(k==0) return 0;
         sort(t.begin(),t.end());
