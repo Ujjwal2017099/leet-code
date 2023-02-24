@@ -11,7 +11,7 @@ public:
         sort(v.begin(),v.end());
         long long ans=0;
         long long cnt=1;
-        for(auto i:v){
+        for(int i:v){
             long long t = i;
             ans += t*cnt++;
         }
