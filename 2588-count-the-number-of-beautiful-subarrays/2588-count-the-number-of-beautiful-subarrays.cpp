@@ -6,7 +6,7 @@ public:
         for(int i=1;i<n.size();i++){
             t[i] = t[i-1] ^ n[i];
         }
-        map<int,long long> mp;
+        unordered_map<int,long long> mp;
         long long ans=0;
         for(int i=0;i<n.size();i++){
             ans += mp[t[i]]++;
