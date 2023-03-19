@@ -3,10 +3,10 @@ public:
     int dp[21];
     int beautifulSubsets(vector<int>& n, int k) {
         // memset(dp,-1,sizeof(dp));
-        unordered_map<int,bool> s;
+        map<int,bool> s;
         return dfs(n,0,k,s);
     }
-    int dfs(vector<int>& n,int i,int k,unordered_map<int,bool>& s){
+    int dfs(vector<int>& n,int i,int k,map<int,bool>& s){
         if(i==n.size()){
             return 0;
         }
