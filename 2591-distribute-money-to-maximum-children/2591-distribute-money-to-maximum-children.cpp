@@ -7,7 +7,6 @@ public:
         int cnt=0;
         int x = m/8;
         int y = m%8;
-        cout<<x<<" "<<y<<endl;
         if(x==0 || x+y==c) return x;
         if(x+y>c) {
             if(x<c){
