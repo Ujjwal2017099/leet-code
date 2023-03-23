@@ -1,11 +1,11 @@
 class Solution {
 public:
-    set<vector<int>> ans;
+    vector<vector<int>> ans;
     vector<vector<int>> combinationSum(vector<int>& c, int t) {
         map<int,int> m;
         fun(c,t,m,0);
-        vector<vector<int>> x(ans.begin(),ans.end());
-        return x;
+        // vector<vector<int>> x(ans.begin(),ans.end());
+        return ans;
     }
     void fun(vector<int>& c,int t,map<int,int>& m,int k){
         // if(k==c.size()) return;
@@ -15,7 +15,7 @@ public:
                 int y=it.second;
                 while(y--) x.push_back(it.first);
             }
-            ans.insert(x);
+            ans.push_back(x);
             return;
         }
         
