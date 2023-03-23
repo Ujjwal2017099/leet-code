@@ -1,6 +1,6 @@
 class Solution {
 public:
-    set<vector<int>> ans;
+    vector<vector<int>> ans;
     vector<vector<int>> combinationSum2(vector<int>& c, int t) {
         vector<int> m;
         map<int,int> mp;
@@ -14,12 +14,12 @@ public:
             while(a--) y.push_back(it.first);
         }
         fun(y,t,m,0);
-        vector<vector<int>> x(ans.begin(),ans.end());
-        return x;
+        // vector<vector<int>> x(ans.begin(),ans.end());
+        return ans;
     }
     void fun(vector<int>& c,int t,vector<int>& m,int k){
         if(t==0){
-            ans.insert(m);
+            ans.push_back(m);
             return;
         }
         if(t<0) return;
