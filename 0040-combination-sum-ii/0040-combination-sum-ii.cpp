@@ -3,17 +3,8 @@ public:
     vector<vector<int>> ans;
     vector<vector<int>> combinationSum2(vector<int>& c, int t) {
         vector<int> m;
-        map<int,int> mp;
-        for(int i:c){
-            if(i>t || mp[i]*i>t) continue;
-            mp[i]++;
-        }
-        vector<int> y;
-        for(auto& it:mp) {
-            int a=it.second;
-            while(a--) y.push_back(it.first);
-        }
-        fun(y,t,m,0);
+        sort(c.begin(),c.end());
+        fun(c,t,m,0);
         // vector<vector<int>> x(ans.begin(),ans.end());
         return ans;
     }
