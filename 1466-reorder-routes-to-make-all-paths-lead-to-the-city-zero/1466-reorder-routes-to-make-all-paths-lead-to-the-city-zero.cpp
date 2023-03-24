@@ -9,7 +9,7 @@ public:
         }
         queue<vector<int>> q;q.push({0,0});
         int ans=0;
-        map<int,bool> mp;
+        vector<bool> mp(n,0);
         while(!q.empty()){
             vector<int> x=q.front();q.pop();
             ans+=x[1];
