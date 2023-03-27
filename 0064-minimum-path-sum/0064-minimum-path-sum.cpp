@@ -11,7 +11,7 @@ public:
     }
     void fun(vector<vector<int>>& g,int i,int j,int sum){
         int n=g.size(),m=g[0].size();
-        if(i>=n || j>=m) return;
+        if(i>=n || j>=m || sum>=ans) return;
         if(i==n-1 && j==m-1){
             sum+=g[i][j];
             ans=min(sum,ans);
