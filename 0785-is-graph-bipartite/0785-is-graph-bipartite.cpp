@@ -9,6 +9,7 @@ public:
             if(t[i]==-1){
                 ans &= fun(g,i,0);
             }
+            if(!ans) return 0;
         }
         map<int,int> m;
         for(int i:t) {m[i]++;cout<<i<<" ";}
