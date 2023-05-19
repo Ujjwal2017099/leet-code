@@ -1,20 +1,17 @@
 class Solution {
 public:
     int minStartValue(vector<int>& n) {
-        int ans=1;
-        while(1){
-            bool f=1;
-            int temp=ans;
-            for(int& i:n){
-                temp += i;
-                if(temp<1) {
-                    f=0;
-                    break;
-                }
-            }
-            if(f) return ans;
-            ans++;
+        for(int i=1;i<n.size();i++){
+            n[i] +=n[i-1];
         }
+        int mn=1;
+        for(int i=0;i<n.size();i++){
+            mn=min(mn,n[i]);
+        }
+        if(mn<=0){
+            return abs(mn)+1;
+        }
+        
         return 1;
     }
 };
