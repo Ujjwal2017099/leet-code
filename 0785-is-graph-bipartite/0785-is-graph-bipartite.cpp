@@ -11,8 +11,6 @@ public:
             }
             if(!ans) return 0;
         }
-        map<int,int> m;
-        for(int i:t) {m[i]++;cout<<i<<" ";}
         // if(m.size()==1) ans=0;
         return ans;
     }
