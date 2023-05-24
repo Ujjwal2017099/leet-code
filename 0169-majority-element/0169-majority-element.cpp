@@ -3,7 +3,7 @@ public:
     int majorityElement(vector<int>& n) {
         int ans=0;
         int cnt=0;
-        for(int i:n){
+        for(int& i:n){
             if(!cnt){
                 ans=i;
             }
