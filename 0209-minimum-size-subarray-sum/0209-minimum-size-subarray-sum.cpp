@@ -2,23 +2,14 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& n) {
         int ans=INT_MAX;
-        int l=0;
-        partial_sum(n.begin(),n.end(),n.begin());
-        if(n.back()>=target) ans=n.size();
+        int l=0,sm=0;
         for(int i=0;i<n.size();i++){
-            while(l<i && n[i]-n[l]>=target){
-                ans=min(ans,i-l);
-                l++;
-                // cout<<i-l+1<<" ";
-            }
-            if(n[i]>=target){
-                ans=min(ans,i+1);
+            sm+=n[i];
+            while(l<=i && sm>=target){
+                ans=min(ans,i-l+1);
+                sm-=n[l++];
             }
         }
-        while(l<n.size() && n.back()-n[l]>=target){
-            int i=n.size();
-            ans=min(ans,i-l);l++;
-        }
-        return ans==INT_MAX ? 0 : ans;
+        return ans==INT_MAX?0:ans;
     }
 };
