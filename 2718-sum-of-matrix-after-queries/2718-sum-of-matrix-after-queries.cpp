@@ -7,6 +7,7 @@ public:
         unordered_map<int,bool> mc;
         
         for(int i=q.size()-1;i>=0;i--){
+            if(!r && !c) break;
             int x=q[i][0];
             int y=q[i][1];
             long long val=q[i][2];
