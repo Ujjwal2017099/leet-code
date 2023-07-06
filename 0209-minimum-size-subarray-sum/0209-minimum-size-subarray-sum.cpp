@@ -1,15 +1,23 @@
 class Solution {
 public:
-    int minSubArrayLen(int target, vector<int>& n) {
+    int minSubArrayLen(int x, vector<int>& n) {
+        vector<int> t(n.size()+1);t[0]=0;
+        partial_sum(n.begin(),n.end(),t.begin()+1);
+        int l=0,r=1;
         int ans=INT_MAX;
-        int l=0,sm=0;
-        for(int i=0;i<n.size();i++){
-            sm+=n[i];
-            while(l<=i && sm>=target){
-                ans=min(ans,i-l+1);
-                sm-=n[l++];
+        while(r<t.size()){
+            if(t[r]-t[l]>=x){
+                ans=min(ans,r-l);
+                l++;
+            }else{
+                r++;
             }
         }
-        return ans==INT_MAX?0:ans;
+        while(l<r){
+            if(t.back()-t[l]<x) break;
+            ans=min(ans,(int)t.size()-l);
+            l++;
+        }
+        return ans==INT_MAX ? 0 : ans;
     }
 };
