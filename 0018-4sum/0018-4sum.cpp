@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& n, int t) {
         sort(n.begin(),n.end());
-        unordered_map<long long,int> m;
+        map<long long,int> m;
         for(int i=0;i<n.size();i++) m[n[i]]=i+1;
         vector<vector<int>> x;
         if(n.size()<4) return x;
