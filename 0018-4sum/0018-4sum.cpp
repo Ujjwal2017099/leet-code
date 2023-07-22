@@ -17,9 +17,9 @@ public:
                     }
                     while(k<n.size()-1 && n[k+1]==n[k]) k++;
                 }
-                while(j<n.size()-1 && n[j+1]==n[j]) j++;
+                while(j<n.size()-2 && n[j+1]==n[j]) j++;
             }
-            while(i<n.size()-1 && n[i+1]==n[i]) i++;
+            while(i<n.size()-3 && n[i+1]==n[i]) i++;
         }
         return x;
     }
