@@ -6,7 +6,7 @@ public:
         for(int i=0;i<n.size();i++){
             m[n[i]] = i+1;
         }
-        if(m.size()==1 && n.size()==3000 && m[0]) return {{0,0,0}};
+        // if(m.size()==1 && n.size()==3000 && m[0]) return {{0,0,0}};
         // map<int ,bool> f;
         set<vector<int>> ans;
         // vector<vector<int>> x;
@@ -21,6 +21,7 @@ public:
                     // x.push_back(t);
                 }
             }
+            while(i<n.size()-1 && n[i+1]==n[i]) i++;
         }
         vector<vector<int>> x(ans.begin(),ans.end());
         return x;
