@@ -1,41 +1,28 @@
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-        vector<int> arr(26,0);
-        for(char c:s) arr[c-'a']++;
-        map<char,int> m;
-        string ans="";
+        stack<char> st;
+        int arr[26] = {0};
+        bool ch[26] = {0};
+        
+        for(int i=0;i<s.size();i++) arr[s[i]-'a'] = i;
         
         for(int i=0;i<s.size();i++){
-            if(arr[s[i]-'a']==1 || !m[s[i]]){
-                m[s[i]]=i+1;
-                continue;
+            if(ch[s[i]-'a']) continue;
+            
+            while(st.size() > 0 && st.top() > s[i] && i < arr[st.top() - 'a']){
+                ch[st.top() - 'a'] = 0; 
+                st.pop();
             }
-            int x = m[s[i]]-1;
-            if(sm_ahead(x,m,s,arr,i)){
-                // cout<<s[i]<<" "<<i<<endl;
-                m[s[i]] = i+1;
-                // arr[s[i]-'a']--;
-            }
+            st.push(s[i]); 
+            ch[s[i]-'a'] = 1; 
         }
-        vector<int> v;
-        for(auto& it:m){
-            v.push_back(it.second);
+        string ans="";
+        while(st.size()){
+            ans.push_back(st.top());st.pop();
         }
-        sort(v.begin(),v.end());
-        for(int i:v){
-            ans.push_back(s[i-1]);
-        }
+        reverse(ans.begin(),ans.end());
         return ans;
     }
-    bool sm_ahead(int x,map<char,int>& m,string& s,vector<int>& arr,int y){
-        arr[s[y]-'a']--;
-        for(int i=x+1;i<y;i++){
-            if(s[x]<s[i] && arr[s[i]-'a']==1 && m[s[i]]==i+1){
-                break;
-            }else if(s[x]==s[i]) continue;
-            else if(s[x]>s[i] && m[s[i]]==i+1) return true;
-        }
-        return false;
-    }
+    
 };
