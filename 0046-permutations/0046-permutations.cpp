@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    void fun(vector<int>& n,deque<int> ch,vector<int> t){
+    void fun(vector<int>& n,deque<int>& ch,vector<int> t){
         if(ch.empty()) {
             ans.push_back(t);
             return;
