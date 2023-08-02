@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    void fun(vector<int>& n,deque<int>& ch,vector<int> t){
+    void fun(vector<int>& n,deque<int>& ch,vector<int>& t){
         if(ch.empty()) {
             ans.push_back(t);
             return;
@@ -20,7 +20,8 @@ public:
     vector<vector<int>> permute(vector<int>& n) {
         deque<int> ch;
         for(int i=0;i<n.size();i++) ch.push_back(i);
-        fun(n,ch,{});
+        vector<int> t;
+        fun(n,ch,t);
         return ans;
     }
 };
