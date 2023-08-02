@@ -1,25 +1,28 @@
 class Solution {
 public:
     int maxProduct(vector<string>& w) {
-        vector<vector<int>> v(w.size(),vector<int>(26,0));
+        vector<int> x(w.size());
+        
         for(int i=0;i<w.size();i++){
+            vector<int> v(26,0);
             for(char c:w[i]){
-                v[i][c-'a']++;
+                v[c-'a'] = 1;
             }
+            int b=0,prd=1;
+            for(int i:v){
+                if(i) b+=prd*2;
+                prd*=2;
+            }
+            x[i]=b;
             // for(int i:v[i]) cout<<i<<" ";
             // cout<<endl;
         }
         int ans=0;
-        for(int i=0;i<v.size();i++){
-            for(int j=i+1;j<v.size();j++){
-                bool f=0;
-                for(int k=0;k<26;k++){
-                    if(v[i][k] && v[j][k]){
-                        f=1;
-                        break;
-                    }
+        for(int i=0;i<x.size();i++){
+            for(int j=i+1;j<x.size();j++){
+                if(!(x[i]&x[j])){
+                    ans=max(ans,(int)(w[i].size()*w[j].size()));
                 }
-                if(!f) {ans=max(ans,(int)(w[i].size()*w[j].size()));}
             }
         }
         return ans;
