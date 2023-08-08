@@ -2,24 +2,26 @@ class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& n) {
         sort(n.begin(),n.end());
-        
+        int mx=0;
         vector<vector<int>> dp(n.size()+1,vector<int>(n.size(),0));
         for(int i=0;i<n.size();i++){
             for(int j=i+1;j<n.size();j++){
                 if(n[j]%n[i]==0) dp[i+1][j]=max(dp[i][i]+1,dp[i][j]);
                 else dp[i+1][j]=dp[i][j];
-            }
-        }
-        int mx=0;
-        for(int i=0;i<n.size();i++){
-            for(int j=0;j<n.size();j++){
+                
                 if(dp[i+1][j]>=dp[mx][mx]){
                     mx=j;       
                 }
-                // cout<<dp[i+1][j]<<" ";
             }
-            // cout<<endl;
         }
+        
+//         for(int i=0;i<n.size();i++){
+//             for(int j=0;j<n.size();j++){
+                
+//                 // cout<<dp[i+1][j]<<" ";
+//             }
+//             // cout<<endl;
+//         }
         vector<int> ans;
         ans.push_back(n[mx]);
         int prev=mx;
