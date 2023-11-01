@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mx=0;
-    map<int,int> cnt;
+    unordered_map<int,int> cnt;
     vector<int> findMode(TreeNode* root) {
         vector<int> ans;
         fun(root);
