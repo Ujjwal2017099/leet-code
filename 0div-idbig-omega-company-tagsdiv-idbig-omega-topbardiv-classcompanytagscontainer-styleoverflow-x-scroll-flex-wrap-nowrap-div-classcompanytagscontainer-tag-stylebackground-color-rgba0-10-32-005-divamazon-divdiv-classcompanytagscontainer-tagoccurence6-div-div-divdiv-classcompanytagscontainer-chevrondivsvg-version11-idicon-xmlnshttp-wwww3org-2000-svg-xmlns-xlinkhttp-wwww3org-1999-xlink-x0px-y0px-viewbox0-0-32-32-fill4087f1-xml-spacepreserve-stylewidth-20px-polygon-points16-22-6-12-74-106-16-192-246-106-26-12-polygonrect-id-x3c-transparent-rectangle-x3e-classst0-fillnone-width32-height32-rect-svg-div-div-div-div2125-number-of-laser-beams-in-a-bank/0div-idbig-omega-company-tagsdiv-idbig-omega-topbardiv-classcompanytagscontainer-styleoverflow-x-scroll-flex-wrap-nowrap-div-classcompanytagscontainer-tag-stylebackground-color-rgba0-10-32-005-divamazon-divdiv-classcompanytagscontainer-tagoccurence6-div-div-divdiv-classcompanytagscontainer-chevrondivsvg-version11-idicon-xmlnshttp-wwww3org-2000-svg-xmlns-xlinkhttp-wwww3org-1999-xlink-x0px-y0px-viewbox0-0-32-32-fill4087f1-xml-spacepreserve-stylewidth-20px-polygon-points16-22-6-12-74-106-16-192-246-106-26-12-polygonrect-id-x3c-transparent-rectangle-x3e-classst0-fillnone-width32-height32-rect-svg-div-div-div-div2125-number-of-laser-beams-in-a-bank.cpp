@@ -9,20 +9,13 @@ public:
                 if(s[i]=='1') cnt++;
             }
             v.push_back(cnt);
-            // cout<<cnt;
         }
-        int prev=0;
-        if(v.size()){
-            prev=v[0];
-        }
-        bool f=0;
+        int prev=v[0];
         for(int i=1;i<v.size();i++){
             if(v[i] ){
                 ans += prev*v[i];
                 prev=v[i];
             }
-            // if(v[i]) prev=v[i];
-            
         }
         return ans;
     }
