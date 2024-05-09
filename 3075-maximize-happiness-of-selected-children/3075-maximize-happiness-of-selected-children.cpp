@@ -7,6 +7,7 @@ public:
         
         for(int i=0;i<k;i++){
             long long x = (h[i]-s>=0 ? (h[i]-s) : 0);
+            if(x==0) break;
             ans += x;
             s++;
         }
